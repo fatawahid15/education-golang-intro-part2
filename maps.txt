@@ -1,0 +1,100 @@
+package main
+
+import (
+	"fmt"
+	"maps"
+)
+
+func main() {
+
+	// var mapVariable map[keyType]valueType
+	// mapVariable = make(map[keyType]valueType)
+
+	// using a map literal
+	// mapVariable = map[keyType]valueType{
+	// 	key1: value1,
+	// 	key2: value2,
+	// }
+
+	myMap := make(map[string]int)
+
+	fmt.Println(myMap)
+
+	myMap["key1"] = 9
+	myMap["code"] = 19
+
+	fmt.Println(myMap)
+	fmt.Println(myMap["key1"])
+	fmt.Println(myMap["key3"])
+	// if a key doesn't exist, it will entry 0 value, depends on the data type too ofc
+
+	// delete(myMap, "key1")
+	// fmt.Println(myMap)
+
+	myMap["key2"] = 93
+	myMap["key3"] = 92
+	myMap["key4"] = 19
+
+	// clear(myMap) // delete the whole map
+	// fmt.Println(myMap)
+
+	_, ok := myMap["key1"]
+	fmt.Println("Is a value associated with key 1", ok)
+
+	// ^ use ok to receive the value when accessing the key, boolean
+
+	if ok {
+		fmt.Println("there's value")
+	} else {
+		fmt.Println("no value")
+	}
+
+	v := myMap["key1"]
+	fmt.Println(v)
+
+	// ===== initialized map in the same line
+
+	myMap2 := map[string]int{"a": 1, "b": 2}
+	myMap3 := map[string]int{"a": 1, "b": 2}
+	fmt.Println(myMap2)
+
+	if maps.Equal(myMap3, myMap2) {
+		fmt.Println("myMap & myMap2 are equal")
+	}
+
+	for k, v := range myMap3 {
+		fmt.Println(k, v)
+	}
+
+	for _, v := range myMap3 {
+		fmt.Println(v)
+	}
+
+	// ^ sometimes you don't really the keys, so you only display the value
+
+	var myMap4 map[string]string
+
+	if myMap4 == nil { // tautological condition
+		fmt.Println("intialized map with nil value")
+	} else {
+		fmt.Println("not nil, fake")
+	}
+
+	val := myMap4["key"]
+	fmt.Println(val)
+
+	// myMap4["key"] = "mango" // nil dereference in map undate, wont work
+
+	myMap4 = make(map[string]string) // we use make instead
+	myMap4["key"] = "Value"
+	fmt.Println(myMap4)
+
+	fmt.Println("myMap4 length is", len(myMap))
+
+	// multidimensional / nested map
+
+	myMap5 := make(map[string]map[string]string)
+
+	myMap5["map1"] = myMap4
+	fmt.Println(myMap5)
+}
