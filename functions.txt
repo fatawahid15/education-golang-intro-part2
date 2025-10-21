@@ -1,0 +1,64 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	// func <name> (parameters/parameters list/no parameters is fine too) returnType {
+	// code block
+	// return value
+	// }
+
+	// fmt.Println() // available for all packages to use // will create public & private func later
+
+	// sum := add(1, 2)
+
+	// fmt.Println(sum)
+
+	// fmt.Println(add(1, 2)) // we can use func inside the println
+
+	// // Anonymous function
+	// func() {
+	// 	fmt.Println("Hello anonymous func")
+	// }()
+
+	// greet := func() {
+	// 	fmt.Println("Hello anonymous func")
+	// }
+
+	// // greet assigned as a function here ^^
+
+	// greet()
+
+	// operation := add
+
+	// result := operation(3, 5)
+
+	// fmt.Println(result)
+
+	// we can use function as types and function can be assigned to variable and pass it around
+
+	// Passing a function as an argument
+	result := applyOperation(5, 6, add)
+	fmt.Println("5 + 6 =", result)
+
+	// Returning and using a function
+	multiplyBy2 := createMultiplier(2)
+	fmt.Println("6 x 2 =", multiplyBy2(6))
+}
+
+func add(a, b int) int {
+	return a + b
+}
+
+// Function that takes a function as an argument
+func applyOperation(x int, y int, operation func(int, int) int) int {
+	return operation(x, y)
+}
+
+// Function that returns a function
+func createMultiplier(factor int) func(int) int {
+	return func(x int) int {
+		return x * factor
+	}
+}
