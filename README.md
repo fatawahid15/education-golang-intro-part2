@@ -1,6 +1,6 @@
 # Golang Introduction Part 2
 
-A brief (1-2 sentence) introduction to the course, its goals, and its target audience.
+Welcome to this introductory course on the Go programming language. This course is designed for beginners who want to learn the basics of Go.
 
 ## Prerequisites
 
