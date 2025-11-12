@@ -1,3 +1,10 @@
+# [##]: Arrays
+
+This section covers the basics of arrays in Go.
+
+## Code
+
+```go
 package main
 
 import "fmt"
@@ -73,7 +80,8 @@ func main() {
 
 	var copiedArray1 *[3]int // asterisk => pointer => pointer variable
 	copiedArray1 = &originalArray
-	copiedArray1[0] = 100 // => this update thingy will replace the value in the original array too because its a pointer variable
+
+copiedArray1[0] = 100 // => this update thingy will replace the value in the original array too because its a pointer variable
 
 	fmt.Println(copiedArray1)
 
@@ -82,3 +90,34 @@ func main() {
 func sumFunc() (int, int) { // <= returns 2 integer
 	return 1, 2
 }
+```
+
+### Explanation
+
+-   **`var numbers [5]int`**: Declares an array of 5 integers.
+-   **`fruits := [4]string{"mango", "apple", "jack", "banana"}`**: Declares and initializes an array of strings.
+-   **`copiedArray := originalArray`**: In Go, assigning an array to another creates a copy.
+-   **`for i := 0; i < len(numbers); i++`**: A classic for loop to iterate over an array.
+-   **`for index, value := range numbers`**: A `for...range` loop to iterate over an array, providing both index and value.
+-   **`_`**: The blank identifier `_` is used to discard values.
+-   **`array1 == array2`**: Arrays can be compared if they have the same element type and length.
+-   **`var matrix [3][3]int`**: Declares a 2D array (matrix).
+-   **`&originalArray`**: The `&` operator gives the memory address of the variable, creating a pointer.
+
+## How to Run
+
+1.  Navigate to this directory in your terminal:
+    ```sh
+    cd 02-arrays
+    ```
+2.  Run the program using the `go run` command:
+    ```sh
+    go run main.go
+    ```
+
+## References
+
+-   [Go Tour: Arrays](https://go.dev/tour/moretypes/6)
+-   [Effective Go: Arrays](https://go.dev/doc/effective_go#arrays)
+-   [Go by Example: Arrays](https://gobyexample.com/arrays)
+
